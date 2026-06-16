@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="qrschool_mobil.AddEquipmentPage"
+             BackgroundColor="#1F1F1F"
+             Title="Добавить технику">
+    <ScrollView>
+        <VerticalStackLayout Padding="28,24" Spacing="18">
+            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="28">
+                <Label Text="‹" TextColor="White" FontSize="46" VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Grid.Column="1" Text="Добавить технику" TextColor="White" FontSize="29" FontAttributes="Bold" VerticalOptions="Center" />
+            </Grid>
+
+            <Entry x:Name="QrEntry" Placeholder="QR-код" TextColor="White" PlaceholderColor="#888" />
+            <Entry x:Name="TypeEntry" Placeholder="Тип" TextColor="White" PlaceholderColor="#888" />
+            <Entry x:Name="CabinetEntry" Placeholder="Кабинет" TextColor="White" PlaceholderColor="#888" />
+            <Entry x:Name="StatusEntry" Placeholder="Статус" TextColor="White" PlaceholderColor="#888" />
+            <Editor x:Name="DescriptionEditor" Placeholder="Описание" TextColor="White" PlaceholderColor="#888" HeightRequest="130" />
+
+            <Button Text="Сохранить"
+                    Clicked="OnSaveClicked"
+                    BackgroundColor="#A895EC"
+                    TextColor="#24202B"
+                    CornerRadius="10"
+                    HeightRequest="66"
+                    FontSize="20" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

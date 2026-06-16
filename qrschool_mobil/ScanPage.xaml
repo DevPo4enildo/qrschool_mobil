@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
+             x:Class="qrschool_mobil.ScanPage"
+             BackgroundColor="#1F1F1F"
+             Title="Сканирование">
+    <Grid RowDefinitions="Auto,*,Auto,Auto">
+        <Grid Padding="28,24" ColumnDefinitions="Auto,*" ColumnSpacing="28">
+            <Label Text="‹" TextColor="White" FontSize="46" VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Grid.Column="1" Text="Сканирование" TextColor="White" FontSize="29" FontAttributes="Bold" VerticalOptions="Center" />
+        </Grid>
+
+        <zxing:CameraBarcodeReaderView Grid.Row="1"
+                                       x:Name="CameraView"
+                                       BarcodesDetected="OnBarcodesDetected" />
+
+        <Label Grid.Row="2"
+               x:Name="ScanStatusLabel"
+               Text="Отсканируйте код..."
+               TextColor="White"
+               FontSize="21"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center"
+               Padding="0,14" />
+
+        <Border Grid.Row="3" Margin="16,0,16,18" Padding="16" BackgroundColor="Black" StrokeThickness="0" StrokeShape="RoundRectangle 8">
+            <VerticalStackLayout Spacing="6">
+                <Label x:Name="TypeLabel" Text="Тип: -" TextColor="White" FontSize="20" />
+                <Label x:Name="CabinetLabel" Text="Кабинет: -" TextColor="White" FontSize="20" />
+                <Label x:Name="StatusLabel" Text="Статус: -" TextColor="White" FontSize="20" />
+                <Label x:Name="DescriptionLabel" Text="Описание: -" TextColor="White" FontSize="20" />
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentPage>

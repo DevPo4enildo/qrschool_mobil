@@ -1,24 +1,24 @@
-﻿namespace qrschool_mobil
+namespace qrschool_mobil;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+    public MainPage()
     {
-        int count = 0;
+        InitializeComponent();
+    }
 
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+    private async void OnScanClicked(object? sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(ScanPage));
+    }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
-        {
-            count++;
+    private async void OnAddClicked(object? sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(AddEquipmentPage));
+    }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
+    private async void OnListClicked(object? sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(EquipmentListPage));
     }
 }
